@@ -1,1 +1,0 @@
-Hi Create a table of given number in python using for loop
