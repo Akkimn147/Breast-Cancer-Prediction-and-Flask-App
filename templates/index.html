@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Breast Cancer Prediction</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+ <div class="login">
+	<h1 style="color:Tomato; border:2px solid Blue;background-color: lightgreen;">Breast Cancer Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="x.radius_mean" placeholder="x.radius_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.texture_mean" placeholder="x.texture_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+		<input type="text" name="x.perimeter_mean" placeholder="x.perimeter_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+		<input type="text" name="x.area_mean" placeholder="x.area_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.smoothness_mean	" placeholder="x.smoothness_mean	" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.compactness_mean" placeholder="x.compactness_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.concavity_mean" placeholder="x.concavity_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.concave_pts_mean" placeholder="x.concave_pts_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.symmetry_mean" placeholder="x.symmetry_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.fractal_dim_mean" placeholder="x.fractal_dim_mean" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.radius_se" placeholder="x.radius_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;" />
+        <input type="text" name="x.texture_se" placeholder="x.texture_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.perimeter_se" placeholder="x.perimeter_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.area_se" placeholder="x.area_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.smoothness_se" placeholder="x.smoothness_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.compactness_se" placeholder="x.compactness_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.concavity_se	" placeholder="x.concavity_se	" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.concave_pts_se" placeholder="x.concave_pts_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.symmetry_se" placeholder="x.symmetry_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.fractal_dim_se" placeholder="x.fractal_dim_se" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.radius_worst" placeholder="x.radius_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.texture_worst" placeholder="x.texture_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.perimeter_worst" placeholder="x.perimeter_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.area_worst" placeholder="x.area_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.smoothness_worst" placeholder="x.smoothness_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.compactness_worst" placeholder="x.compactness_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.concavity_worst" placeholder="x.concavity_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.concave_pts_worst" placeholder="x.concave_pts_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.symmetry_worst" placeholder="x.symmetry_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;"/>
+        <input type="text" name="x.fractal_dim_worst" placeholder="x.fractal_dim_worst" required="required" style="border: 1px solid red; color: red; background-color: skyblue;" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large" style="color: blue;">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
